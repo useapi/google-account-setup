@@ -29,10 +29,33 @@ The scripts read nothing and send nothing — you copy the cookies yourself. Eac
    - **macOS:** in Terminal, run `bash ~/Downloads/google-account-setup-mac.command`.
    - **Linux / WSL:** run `bash google-account-setup-linux.sh`.
 4. Choose where to sign in — pick a service from the menu (Google Flow, Gemini Notebook, Google Vids, or **enter your own URL**), or pass it as an argument: `flow`, `notebook`, `vids`, or any URL.
-5. In the browser window: sign in to your dedicated Google account, open Developer Tools (`F12`) → `Application` → `Cookies`, copy the cookies the script names, and paste them into the form of the tool you are connecting the account to.
+5. In the browser window: sign in to your dedicated Google account, open Developer Tools (`F12`) → `Application` → `Cookies`, copy the cookies the script names, and paste them into the form of the tool you are connecting the account to. The [example below](#example-signing-in-and-copying-the-cookies-google-flow) shows each screen.
 6. When that tool shows the account as added, close every window of the browser. On a Mac, quit it with `Cmd+Q`. The script then deletes the profile.
 
 Keep the script's window open until it reports the profile was deleted. Do not sign in to the same Google account in any other browser afterwards.
+
+## Example: signing in and copying the cookies (Google Flow)
+
+This is what a run looks like with Google Flow. Other services differ only in the start page and in which cookies you copy.
+
+In the new browser window, sign in with your dedicated Google account <sup>1</sup>.
+
+![Google sign-in page in the clean Brave profile, with the Email or phone field highlighted](images/example-1-sign-in.png)
+
+Enter the password, then the 2-Step Verification code <sup>1</sup>. **Check `Don't ask again on this device`** <sup>2</sup> — without it the session does not last.
+
+![Google 2-Step Verification page with the code field and the Don't ask again on this device checkbox highlighted](images/example-2-two-step-verification.png)
+
+Once Google Flow opens, copy the cookies:
+
+1. Open Developer Tools (`F12`, or right-click → `Inspect`) and open the `Application` tab <sup>1</sup>.
+2. Under `Cookies`, select `https://accounts.google.com` <sup>2</sup>.
+3. Click in the cookie table and select all cookies with `Ctrl+A` (`Cmd+A` on a Mac) <sup>3</sup>.
+4. Copy them with `Ctrl+C`, or right-click → `Copy` <sup>4</sup>, and paste them into the tool you are connecting.
+
+![Brave Developer Tools, Application tab, the accounts.google.com cookies selected and copied](images/example-3-copy-cookies-devtools.png)
+
+If what you copied contains `__Secure-1PSIDRTS`, the session is bound to this device and will be refused elsewhere. Close every window of that browser and run the script again.
 
 ## Why exported Google cookies stop working
 
