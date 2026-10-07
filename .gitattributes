@@ -1,0 +1,4 @@
+# Keep each script's line endings on every checkout: cmd.exe needs CRLF, bash needs LF
+*.cmd     text eol=crlf
+*.command text eol=lf
+*.sh      text eol=lf
